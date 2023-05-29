@@ -1,0 +1,77 @@
+@use './partials/mixins' as *;
+
+.sidebar__tennis {
+    box-sizing: border-box;
+    @include flex(null, column);
+    align-items: center;
+    @include width-height(100%, 100%);
+    position: fixed;
+    top: 0;
+    left: -100%;
+    padding: 2rem;
+    background-color: #FEFFEA;
+    border-right: 1px solid black;
+    transition: 1s;
+    transition-timing-function: linear;
+    z-index: 1;
+
+    @include desktop {
+        width: 50%;
+        padding: 2rem 4rem;
+    }
+
+    &__image {
+        @include flex(center, null);
+        align-items: center;
+        width: 100%;
+        position: relative;
+        flex-grow: 1;
+
+        &__image {
+            aspect-ratio: 16 / 9;
+            object-fit: contain;
+        }
+    }
+
+    &__header {
+        font-style: italic;
+    }
+
+    &.active {
+        left: 0;
+        transition: 1s;
+        transition-timing-function: ease-out;
+    }
+}
+
+.sidebar-left {
+    @include width-height(30%, 100%);
+    position: fixed;
+    top: 0;
+    left: -100%;
+    background-color: red;
+    transition: 1s;
+    transition-timing-function: linear;
+}
+
+.sidebar-left.active {
+    left: 0;
+    transition: 1s;
+    transition-timing-function: ease-out;
+}
+
+.sidebar-right {
+    @include width-height(30%, 100%);
+    position: fixed;
+    top: 0;
+    right: -100%;
+    background-color: red;
+    transition: 1s;
+    transition-timing-function: linear;
+}
+
+.sidebar-right.active {
+    right: 0;
+    transition: 1s;
+    transition-timing-function: ease-out;
+}

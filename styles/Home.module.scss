@@ -1,0 +1,109 @@
+@use "../styles/partials/mixins" as *;
+
+.circle {
+  @include width-height(600px, 600px);
+}
+
+
+
+.tennis {
+  @include circle-class(-350px, 350px);
+
+  &:hover {
+    @include circle-hover();
+  }
+}
+
+.run {
+  @include circle-class(-125px, 475px);
+
+  &:hover {
+    @include circle-hover();
+  }
+}
+
+.fdu {
+  @include circle-class(475px, 125px);
+  border: 1px solid black;
+
+  &:hover {
+    @include circle-hover();
+  }
+}
+
+.murray {
+  @include circle-class(350px, 350px);
+  border: 1px solid black;
+
+  &:hover {
+    @include circle-hover();
+  }
+}
+
+.brainstation {
+  @include circle-class(125px, 475px);
+  border: 1px solid black;
+
+  &:hover {
+    @include circle-hover();
+  }
+}
+
+.vancouver {
+  @include circle-class(-480px, 125px);
+
+  &:hover {
+    @include circle-hover();
+  }
+}
+
+.experience {
+  @include circle-class(-480px, -125px);
+
+  &:hover {
+    @include circle-hover();
+  }
+}
+
+.skills {
+  @include circle-class(-350px, -350px);
+  border: 1px solid black;
+
+  &:hover {
+    @include circle-hover();
+  }
+}
+
+.profile {
+  @include circle-class(-125px, -480px);
+
+  &:hover {
+    @include circle-hover();
+  }
+}
+
+.placeholder1 {
+  @include circle-class(125px, -475px);
+
+  &:hover {
+    @include circle-hover();
+  }
+}
+
+.placeholder2 {
+  @include circle-class(350px, -350px);
+  border: 1px solid black;
+
+  &:hover {
+    @include circle-hover();
+  }
+}
+
+.placeholder3 {
+  @include circle-class(475px, -125px);
+
+  &:hover {
+    @include circle-hover();
+  }
+}
+

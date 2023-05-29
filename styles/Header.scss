@@ -1,0 +1,21 @@
+@use './partials/mixins' as *;
+
+.header {
+    @include flex(center, null);
+    position: fixed;
+    top: 0;
+    left: 0;
+    text-align: center;
+    margin: auto;
+    @include width-height(100%, 5rem);
+}
+
+.mode-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.toggle-mode {
+    @include width-height(3rem, 3rem);
+}
