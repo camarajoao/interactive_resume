@@ -1,0 +1,38 @@
+@use './partials/mixins' as *;
+
+.container {
+    @include width-height(100%, 100vh);
+    @include flex(center, column);
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    
+}
+
+.light {
+    background-color: #FEFFEA;
+}
+
+.dark {
+    background-color: #0a192f;
+}
+
+.joao {
+    @include circle-class(0, 0, 200px, 200px);
+
+
+    &:hover {
+        @include circle-hover();
+    }
+}
+
+.dark-bg {
+    background-color: #0a192f;
+}
+
+.light-bg {
+    background-color: #FEFFEA;
+}
+
+
+
