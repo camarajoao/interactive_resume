@@ -1,6 +1,20 @@
 @use './partials/mixins' as *;
 @use './partials/typography' as *;
 
+:root {
+  --text-color: black;
+  --background: #FEFFEA;
+  --profile-image-bg: #0a192f;
+  --sidebar-bg: #FEFFEA;
+}
+
+[data-theme='dark'] {
+  --text-color: #C1C3C1;
+  --background: #0a192f;
+  --profile-image-bg: #FEFFEA;
+  --sidebar-bg: #0a192f;
+}
+
 $caladea: 'caladea';
 
 * {

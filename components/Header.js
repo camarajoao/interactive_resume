@@ -7,15 +7,17 @@ function Header({ theme, setTheme }) {
     const toggleTheme = () => {
         if (theme === 'light') {
             setTheme('dark');
+            localStorage.setItem('theme', 'dark')
         } else {
             setTheme('light');
+            localStorage.setItem('theme', 'light')
         }
     };
 
     return (
         <div className='header'>
             <button onClick={toggleTheme} className='mode-button'>
-                <Image src={theme === 'light' ? sunIcon : moonIcon} className='toggle-mode sun' />
+                <Image src={theme === 'light' ? sunIcon : moonIcon} className='toggle-mode' />
             </button>
         </div>
     )

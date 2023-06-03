@@ -1,16 +1,15 @@
 @use './partials/mixins' as *;
 
 .header {
-    @include flex(center, null);
+    @include flex(right, null);
+    @include width-height(100%, 5rem);
     position: fixed;
     top: 0;
     left: 0;
-    text-align: center;
-    margin: auto;
-    @include width-height(100%, 5rem);
 }
 
 .mode-button {
+    margin: 1.6rem;
     background-color: transparent;
     border: none;
     cursor: pointer;

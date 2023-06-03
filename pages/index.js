@@ -1,7 +1,8 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.scss';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import useLocalStorage from 'use-local-storage';
 
 import joao from '../public/images/profileJoaoCamara.png'
 import tennis from '../public/images/tennis.jpg'
@@ -17,10 +18,21 @@ import DescriptionLeft from '../components/DescriptionLeft';
 import DescriptionRight from '../components/DescriptionRight';
 import Header from '../components/Header';
 import TennisDescription from '../components/TennisDescription';
+import CityDescription from '../components/CityDescription';
+import MarathonDescription from '../components/MarathonDescription';
 
 export default function Home() {
 
-  const [theme, setTheme] = useState('light')
+  const [theme, setTheme] = useState(null)
+  useEffect(() => {
+    // Perform localStorage action
+    const localTheme = window.localStorage.getItem('theme')
+    if (localTheme) {
+      setTheme(localTheme)
+    } else {
+      setTheme('light')
+    }
+  }, []);
 
   const [sidebarLeft, setSidebarLeft] = useState(false);
   const showSidebarLeft = () => setSidebarLeft(true);
@@ -29,29 +41,35 @@ export default function Home() {
   const showSidebarRight = () => setSidebarRight(true);
   const hideSidebarRight = () => setSidebarRight(false);
 
+  const [sidebarCity, setSidebarCity] = useState(false);
+  const showSidebarCity = () => setSidebarCity(true);
+  const hideSidebarCity = () => setSidebarCity(false);
+
   const [sidebarTennis, setSidebarTennis] = useState(false);
   const showSidebarTennis = () => setSidebarTennis(true);
   const hideSidebarTennis = () => setSidebarTennis(false);
 
+  const [sidebarMarathon, setSidebarMarathon] = useState(false);
+  const showSidebarMarathon = () => setSidebarMarathon(true);
+  const hideSidebarMarathon = () => setSidebarMarathon(false);
+
   return (
-    <div className={`container ${theme}`}>
+    <div className='container' data-theme={theme}>
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
+      <Header theme={theme} setTheme={setTheme} />
       <main>
-        <Header theme={theme} setTheme={setTheme} />
         <DescriptionLeft sidebarLeft={sidebarLeft} />
         <DescriptionRight sidebarRight={sidebarRight} />
-        <Image
-          src={joao}
-          className={theme === 'light' ? 'joao dark-bg' : 'joao light-bg'}
-        />
-        <Image src={vancouver} className={styles.vancouver} onMouseEnter={showSidebarLeft} onMouseLeave={hideSidebarLeft} />
+        <Image src={joao} className='joao' />
+        <Image src={vancouver} className={styles.vancouver} onMouseEnter={showSidebarCity} onMouseLeave={hideSidebarCity} />
+        <CityDescription sidebarCity={sidebarCity} />
         <Image src={tennis} className={styles.tennis} onMouseEnter={showSidebarTennis} onMouseLeave={hideSidebarTennis} />
         <TennisDescription sidebarTennis={sidebarTennis} />
-        <Image src={run} className={styles.run} onMouseEnter={showSidebarLeft} onMouseLeave={hideSidebarLeft} />
+        <Image src={run} className={styles.run} onMouseEnter={showSidebarMarathon} onMouseLeave={hideSidebarMarathon} />
+        <MarathonDescription sidebarMarathon={sidebarMarathon} />
         <Image src={brainstation} className={styles.brainstation} onMouseEnter={showSidebarLeft} onMouseLeave={hideSidebarLeft} />
         <Image src={murray} className={styles.murray} onMouseEnter={showSidebarLeft} onMouseLeave={hideSidebarLeft} />
         <Image src={fdu} className={styles.fdu} onMouseEnter={showSidebarLeft} onMouseLeave={hideSidebarLeft} />
